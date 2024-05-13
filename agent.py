@@ -49,6 +49,7 @@ def is_tv_on(data):
     return False
 
 def turn_off_tv():
+    print("Tunrning off TV!")
     # If there is no person in 30 seconds, Send webhook to turn off TV.
     response = requests.get(hass_webhook_url)
     if response.status_code == 200:
