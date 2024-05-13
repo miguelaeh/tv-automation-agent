@@ -51,7 +51,7 @@ def turn_off_tv():
         print("ERROR: turning off TV. Webhook request returned: {response.status_code} status")
 
 for payload in data_stream:
-    payload = json.loads(payload)
+    payload = json.loads(payload.value)
     current_person = person_present(payload)
     if not current_person and prev_person:
         person_leaves_at = time.time()
