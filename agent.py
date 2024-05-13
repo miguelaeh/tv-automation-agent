@@ -9,7 +9,7 @@ person_conf = os.getenv("PERSON_CONFIDENCE_THR")
 tv_conf = os.getenv("TV_CONFIDENCE_THR")
 
 if not hass_webhook_url:
-    raise "Missing HAAS_WEBHOOK_URL env var. Please add it to the agent configuration"
+    raise "Missing HASS_WEBHOOK_URL env var. Please add it to the agent configuration"
 if not seconds_without_person:
     raise "Missing SECONDS_WITHOUT_PERSON env var. Please add it to the agent configuration"
 if not person_conf:
