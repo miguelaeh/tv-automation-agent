@@ -52,6 +52,7 @@ def turn_off_tv():
 
 for payload in data_stream:
     payload = payload.value
+    print(f"Got payload value: {payload}")
     current_person = person_present(payload)
     if not current_person and prev_person:
         person_leaves_at = time.time()
