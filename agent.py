@@ -27,6 +27,7 @@ person_leaves_at = 0 # time at which the person leaves.
 
 def person_present(data):
     for item in data:
+        print(item)
         class_name = item.get('class_name', None)
         score = item.get('score', None)
         if class_name == 'person' and score > person_conf:
