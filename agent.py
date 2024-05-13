@@ -71,5 +71,5 @@ for payload in data_stream:
         elapsed = time.time() - person_leaves_at
         if elapsed > seconds_without_person:
             turn_off_tv()
-    else:
+    elif current_person:
         prev_person = True
