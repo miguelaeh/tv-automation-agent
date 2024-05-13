@@ -2,7 +2,6 @@ from pipeless_agents_sdk.cloud import data_stream
 import time
 import requests
 import os
-import json
 
 hass_webhook_url = os.getenv("HASS_WEBHOOK_URL")
 seconds_without_person = os.getenv("SECONDS_WITHOUT_PERSON")
@@ -51,7 +50,7 @@ def turn_off_tv():
         print("ERROR: turning off TV. Webhook request returned: {response.status_code} status")
 
 for payload in data_stream:
-    payload = json.loads(payload.value)
+    payload = payload.value
     current_person = person_present(payload)
     if not current_person and prev_person:
         person_leaves_at = time.time()
