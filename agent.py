@@ -51,13 +51,13 @@ def turn_off_tv():
         print("ERROR: turning off TV. Webhook request returned: {response.status_code} status")
 
 for payload in data_stream:
-    payload = payload.value
-    print(f"Got payload value: {payload}")
-    current_person = person_present(payload)
+    data = payload.value["data"]
+    print(f"Got data: {data}")
+    current_person = person_present(data)
     if not current_person and prev_person:
         person_leaves_at = time.time()
         prev_person = False
-    elif not current_person and not prev_person and is_tv_on(payload):
+    elif not current_person and not prev_person and is_tv_on(data):
         elapsed = time.time() - person_leaves_at
         if elapsed > seconds_without_person:
             turn_off_tv()
